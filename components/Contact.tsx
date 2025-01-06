@@ -1,25 +1,23 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log(formData)
-    // Reset form
-    setFormData({ name: '', email: '', message: '' })
-  }
+    e.preventDefault();
+    console.log(formData);
+    setFormData({ name: '', email: '', message: '' });
+  };
 
   return (
     <section className="py-16 bg-gray-900 bg-opacity-50 backdrop-filter backdrop-blur-lg">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -44,7 +42,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white"
+                className="translucent-input w-full px-3 py-2 rounded text-white focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div>
@@ -56,7 +54,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white"
+                className="translucent-input w-full px-3 py-2 rounded text-white focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div>
@@ -68,7 +66,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white"
+                className="translucent-input w-full px-3 py-2 rounded text-white focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
             <motion.button
@@ -89,14 +87,19 @@ export default function Contact() {
             <p className="text-white"><strong>Email:</strong> kimothomark@gmail.com</p>
             <p className="text-white"><strong>Phone:</strong> +(254) 746-905-309</p>
             <div className="flex space-x-4">
-              <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors"><i className="fab fa-linkedin text-2xl"></i></a>
-              <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors"><i className="fab fa-github text-2xl"></i></a>
-              <a href="#" className="text-green-400 hover:text-green-300 transition-colors"><i className="fab fa-upwork text-2xl"></i></a>
+              <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
+                <i className="fab fa-linkedin text-2xl"></i>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors">
+                <i className="fab fa-github text-2xl"></i>
+              </a>
+              <a href="#" className="text-green-400 hover:text-green-300 transition-colors">
+                <i className="fab fa-upwork text-2xl"></i>
+              </a>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
